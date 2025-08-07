@@ -87,8 +87,7 @@ $$
 
 ### 7. State-Space Representation
 
-Let    
-$ x_1 = X, \;\; x_2 = \dot{X}, \;\; x_3 = \theta, \;\; x_4 = \dot{\theta} $
+Let $$ x_1 = X, \;\; x_2 = \dot{X}, \;\; x_3 = \theta, \;\; x_4 = \dot{\theta} $$
 
 $$
     \begin{bmatrix}
