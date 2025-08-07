@@ -90,8 +90,11 @@ $$
 ### 7. State-Space Representation
 
 
-Let $\, x_1 = X \,$, $\, x_2 = \dot{X} \,$, $\, x_3 = \theta \,$, $\, x_4 = \dot{\theta} \,$.
-
+Let the state variables be defined as:
+- $x_1 = X$    (cart position)
+- $x_2 = \dot{X}$ (cart velocity)
+- $x_3 = \theta$  (pendulum angle)
+- $x_4 = \dot{\theta}$ (pendulum angular velocity)
 
 $$
     \begin{bmatrix}
