@@ -46,48 +46,49 @@ $$
 
 ### 2. Energy
 
-- **Potential:** $$ V = mgy_m = mgl\cos\theta $$
-- **Kinetic:**  \$ T = \frac{1}{2}M\dot{X}^2 + \frac{1}{2}m(\dot{x}_m^2 + \dot{y}_m^2) \$
+- **Potential:**     $V = mgy_m = mgl\cos\theta$
+- **Kinetic:**      $T = \frac{1}{2}M\dot{X}^2 + \frac{1}{2}m(\dot{x}_m^2 + \dot{y}_m^2)$
+
 
 ### 3. Lagrangian
 
-$
-L = T - V = \frac{1}{2}(M+m)\dot{X}^2 + \frac{1}{2}ml^2\dot{\theta}^2 + ml\dot{X}\dot{\theta}\cos\theta - mgl\cos\theta
-$
+$$
+    L = T - V = \frac{1}{2}(M+m)\dot{X}^2 + \frac{1}{2}ml^2\dot{\theta}^2 + ml\dot{X}\dot{\theta}\cos\theta - mgl\cos\theta
+$$
 
 ### 4. Euler-Lagrange Equations
 
 $$
-\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{X}}\right) - \frac{\partial L}{\partial X} = u(t)
+    \frac{d}{dt}\left(\frac{\partial L}{\partial \dot{X}}\right) - \frac{\partial L}{\partial X} = u(t)
 $$
 $$
-\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\theta}}\right) - \frac{\partial L}{\partial \theta} = 0
+    \frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\theta}}\right) - \frac{\partial L}{\partial \theta} = 0
 $$
 
 ### 5. Nonlinear Equations of Motion
 
 $$
-\begin{cases}
-(M + m)\ddot{X} + ml\ddot{\theta}\cos\theta - ml\dot{\theta}^2\sin\theta = u(t) \\
-ml^2\ddot{\theta} + ml\ddot{X}\cos\theta - mgl\sin\theta = 0
-\end{cases}
+    \begin{cases}
+    (M + m)\ddot{X} + ml\ddot{\theta}\cos\theta - ml\dot{\theta}^2\sin\theta = u(t) \\
+    ml^2\ddot{\theta} + ml\ddot{X}\cos\theta - mgl\sin\theta = 0
+    \end{cases}
 $$
 
 ### 6. Linearization (Small Angle)
 
-Assume $ \sin\theta \approx \theta $, $ \cos\theta \approx 1 $:
+Assume     $ \sin\theta \approx \theta $, $ \cos\theta \approx 1 $:
 
 $$
-\begin{cases}
-(M + m)\ddot{X} + ml\ddot{\theta} = u(t) \\
-ml^2\ddot{\theta} + ml\ddot{X} - mgl\theta = 0
-\end{cases}
+    \begin{cases}
+    (M + m)\ddot{X} + ml\ddot{\theta} = u(t) \\
+    ml^2\ddot{\theta} + ml\ddot{X} - mgl\theta = 0
+    \end{cases}
 $$
 
 
 ### 7. State-Space Representation
 
-Let $$ x_1 = X, \;\; x_2 = \dot{X}, \;\; x_3 = \theta, \;\; x_4 = \dot{\theta} $$
+Let     $$ x_1 = X, \;\; x_2 = \dot{X}, \;\; x_3 = \theta, \;\; x_4 = \dot{\theta} $$
 
 $$
     \begin{bmatrix}
