@@ -7,7 +7,7 @@ This repository demonstrates the complete workflow for modeling, linearizing, an
 - **State-space modeling** of the linearized system
 - **State feedback control (pole placement)** to meet specified time-domain requirements
 - **Simulation of closed-loop system** using MATLAB
-
+---
 ## Problem Description
 
 The inverted pendulum on a cart is a standard benchmark problem in control theory, often used to validate modern control methods due to its inherent instability and coupling of dynamics. This project demonstrates my ability to:
@@ -16,133 +16,86 @@ The inverted pendulum on a cart is a standard benchmark problem in control theor
 - Translate physical models into computational (state-space) form
 - Design and implement a pole-placement controller
 - Validate performance using simulation
-
+---
 ## System Dynamics
 
 - States: Cart position (X), Cart velocity (X_dot), Pole angle (theta), Pole angular velocity (theta_dot)
 - Inputs: Control force applied to the cart
 - Outputs: Cart position and pole angle
-
+---
 ## Derivation of System Equations
 
 This section provides a step-by-step derivation of the equations of motion for the inverted pendulum on a cart using Lagrangian mechanics, followed by linearization and state-space formulation.
 
+
 ### 1. Kinematics
 
-Define the position of the pendulum mass in Cartesian coordinates:
-- Let \( X \) be the position of the cart, \( l \) the length to the pendulum mass, and \( \theta \) the angle from vertical.
+- \( x_m = X + l\sin\theta \)
+- \( y_m = l\cos\theta \)
+- \( \dot{x}_m = \dot{X} + l\cos\theta\,\dot{\theta} \)
+- \( \dot{y}_m = -l\sin\theta\,\dot{\theta} \)
+
+### 2. Energy
+
+- **Potential:** \( V = mgy_m = mgl\cos\theta \)
+- **Kinetic:**  \( T = \frac{1}{2}M\dot{X}^2 + \frac{1}{2}m(\dot{x}_m^2 + \dot{y}_m^2) \)
+
+### 3. Lagrangian
+
+- \( L = T - V = \frac{1}{2}(M+m)\dot{X}^2 + \frac{1}{2}ml^2\dot{\theta}^2 + ml\dot{X}\dot{\theta}\cos\theta - mgl\cos\theta \)
+
+### 4. Euler-Lagrange Equations
 
 \[
-x_m = X + l \sin\theta \\
-y_m = l \cos\theta
-\]
-
-The velocities are:
-\[
-\dot{x}_m = \dot{X} + l \cos\theta \cdot \dot{\theta} \\
-\dot{y}_m = -l \sin\theta \cdot \dot{\theta}
-\]
-
-### 2. Energy Expressions
-
-**Potential Energy:**
-\[
-V = mgy_m = mgl\cos\theta
-\]
-
-**Kinetic Energy:**
-\[
-T = \frac{1}{2} M \dot{X}^2 + \frac{1}{2} m \left( \dot{x}_m^2 + \dot{y}_m^2 \right )
-\]
-
-Expanding and simplifying:
-
-\[
-T = \frac{1}{2}(M + m)\dot{X}^2 + \frac{1}{2} m l^2 \dot{\theta}^2 + m l \dot{X} \dot{\theta} \cos\theta
-\]
-
-### 3. Lagrangian and Equations of Motion
-
-The Lagrangian is \( L = T - V \):
-
-\[
-L = \frac{1}{2}(M + m)\dot{X}^2 + \frac{1}{2} m l^2 \dot{\theta}^2 + m l \dot{X} \dot{\theta} \cos\theta - mgl\cos\theta
-\]
-
-Apply the Euler-Lagrange equations for each generalized coordinate (\( X \) and \( \theta \)):
-
-\[
-\frac{d}{dt} \left( \frac{\partial L}{\partial \dot{X}} \right ) - \frac{\partial L}{\partial X} = u(t)
+\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{X}}\right) - \frac{\partial L}{\partial X} = u(t)
 \]
 \[
-\frac{d}{dt} \left( \frac{\partial L}{\partial \dot{\theta}} \right ) - \frac{\partial L}{\partial \theta} = 0
+\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{\theta}}\right) - \frac{\partial L}{\partial \theta} = 0
 \]
 
-This yields the coupled nonlinear equations:
+### 5. Nonlinear Equations of Motion
+
+- \( (M + m)\ddot{X} + ml\ddot{\theta}\cos\theta - ml\dot{\theta}^2\sin\theta = u(t) \)
+- \( ml^2\ddot{\theta} + ml\ddot{X}\cos\theta - mgl\sin\theta = 0 \)
+
+### 6. Linearization (Small Angle)
+
+令 \( \sin\theta \approx \theta \), \( \cos\theta \approx 1 \)，化簡得：
+
+- \( (M + m)\ddot{X} + ml\ddot{\theta} = u(t) \)
+- \( ml^2\ddot{\theta} + ml\ddot{X} - mgl\theta = 0 \)
+
+### 7. State-Space Representation
+
+令
+\( x_1 = X, \;\; x_2 = \dot{X}, \;\; x_3 = \theta, \;\; x_4 = \dot{\theta} \)
 
 \[
-(M + m)\ddot{X} + m l \ddot{\theta} \cos\theta - m l \dot{\theta}^2 \sin\theta = u(t)
-\]
-\[
-m l^2 \ddot{\theta} + m l \ddot{X} \cos\theta - mgl\sin\theta = 0
-\]
-
-### 4. Linearization (Small-Angle Approximation)
-
-Assume small angle \( \theta \approx 0 \), so \( \sin\theta \approx \theta \), \( \cos\theta \approx 1 \), and neglect higher-order terms:
-
-\[
-(M + m)\ddot{X} + m l \ddot{\theta} = u(t)
-\]
-\[
-m l^2 \ddot{\theta} + m l \ddot{X} - mgl\theta = 0
-\]
-
-Insert system parameters (for example, \( M=1 \), \( m=0.2 \), \( l=1 \)), and define state variables:
-
-\[
-x_1 = X, \quad x_2 = \dot{X}, \quad x_3 = \theta, \quad x_4 = \dot{\theta}
-\]
-
-The system can be written in state-space form:
-
-\[
-\begin{cases}
-\dot{x}_1 = x_2 \\
-\dot{x}_2 = -1.962 x_3 + u \\
-\dot{x}_3 = x_4 \\
-\dot{x}_4 = 11.772 x_3 - u
-\end{cases}
-\]
-
-Or, in matrix notation:
-
-\[
-\dot{\mathbf{x}} = A\mathbf{x} + B u
-\]
-\[
-\mathbf{y} = C\mathbf{x}
-\]
-
-Where:
-\[
-A = \begin{bmatrix}
+\begin{bmatrix}
+\dot{x}_1 \\ \dot{x}_2 \\ \dot{x}_3 \\ \dot{x}_4
+\end{bmatrix}
+=
+\begin{bmatrix}
 0 & 1 & 0 & 0 \\
 0 & 0 & -1.962 & 0 \\
 0 & 0 & 0 & 1 \\
 0 & 0 & 11.772 & 0
 \end{bmatrix}
-, \quad
-B = \begin{bmatrix}
+\begin{bmatrix}
+x_1 \\ x_2 \\ x_3 \\ x_4
+\end{bmatrix}
++
+\begin{bmatrix}
 0 \\ 1 \\ 0 \\ -1
 \end{bmatrix}
+u
 \]
+
+---
 
 ### 5. Controller Design
 
 A state-feedback controller is designed via pole placement to achieve desired settling time and overshoot.
-
----
 
 **This derivation demonstrates a systematic approach from physics-based modeling to control-oriented linearization and state-space representation, reflecting solid engineering fundamentals and practical MATLAB implementation skills.**
 
@@ -157,7 +110,7 @@ The state feedback controller is designed based on the following requirements:
 Poles are selected to satisfy these requirements and ensure rapid decay of higher-order modes.
 
 
-
+---
 ## Simulation Results
 
 Sample simulation results are shown below:
@@ -166,6 +119,7 @@ Sample simulation results are shown below:
 
 ![Step Response Theta](<img width="865" height="649" alt="image" src="https://github.com/user-attachments/assets/44ff8c62-5735-4678-865a-7877d9bb5e2d" />)
 
+---
 ## What I Learned
 
 - Practical application of Lagrangian mechanics for system modeling
@@ -173,6 +127,7 @@ Sample simulation results are shown below:
 - Systematic controller design (pole placement) for desired dynamic response
 - Critical evaluation of controller performance through simulation
 
+---
 ## Disclaimer
 
 This project was completed as part of coursework for Modern Control Systems and is intended to showcase my engineering ability and understanding of control systems. All code and documentation are original unless otherwise noted.
