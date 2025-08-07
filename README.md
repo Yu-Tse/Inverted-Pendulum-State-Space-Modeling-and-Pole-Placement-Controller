@@ -88,26 +88,15 @@ $$
 
 Let $ x_1 = X, \;\; x_2 = \dot{X}, \;\; x_3 = \theta, \;\; x_4 = \dot{\theta} $
 
-$$
-\begin{bmatrix}
-\dot{x}_1 \\ \dot{x}_2 \\ \dot{x}_3 \\ \dot{x}_4
-\end{bmatrix}
-=
-\begin{bmatrix}
-0 & 1 & 0 & 0 \\
-0 & 0 & -1.962 & 0 \\
-0 & 0 & 0 & 1 \\
-0 & 0 & 11.772 & 0
-\end{bmatrix}
-\begin{bmatrix}
-x_1 \\ x_2 \\ x_3 \\ x_4
-\end{bmatrix}
-+
-\begin{bmatrix}
-0 \\ 1 \\ 0 \\ -1
-\end{bmatrix}
-u
-$$
+<pre> | ẋ₁ | | 0 1 0 0 | | x₁ | | 0 | u | ẋ₂ | = | 0 0 -1.962 0 | * | x₂ | + | 1 | | ẋ₃ | | 0 0 0 1 | | x₃ | | 0 | | ẋ₄ | | 0 0 11.772 0 | | x₄ | | -1 | </pre>
+
+Where:
+x₁ = X         (cart position)
+x₂ = Ẋ         (cart velocity)
+x₃ = θ         (pendulum angle)
+x₄ = θ̇         (pendulum angular velocity)
+
+
 
 ---
 
