@@ -35,18 +35,18 @@ This section provides a step-by-step derivation of the equations of motion for t
 
 ### 1. Kinematics
 
-$
-\begin{align*}
-    x_m &= X + l\sin\theta \\
-    y_m &= l\cos\theta \\
-    \dot{x}_m &= \dot{X} + l\cos\theta\,\dot{\theta} \\
-    \dot{y}_m &= -l\sin\theta\,\dot{\theta}
-\end{align*}
-$
+$$
+    \begin{align*}
+        x_m &= X + l\sin\theta \\
+        y_m &= l\cos\theta \\
+        \dot{x}_m &= \dot{X} + l\cos\theta\,\dot{\theta} \\
+        \dot{y}_m &= -l\sin\theta\,\dot{\theta}
+    \end{align*}
+$$
 
 ### 2. Energy
 
-- **Potential:** \$ V = mgy_m = mgl\cos\theta \$
+- **Potential:** $$ V = mgy_m = mgl\cos\theta $$
 - **Kinetic:**  \$ T = \frac{1}{2}M\dot{X}^2 + \frac{1}{2}m(\dot{x}_m^2 + \dot{y}_m^2) \$
 
 ### 3. Lagrangian
