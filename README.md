@@ -91,10 +91,13 @@ $$
 
 
 Let the state variables be defined as:
-- $x_1 = X$    (cart position)
-- $x_2 = \dot{X}$ (cart velocity)
-- $x_3 = \theta$  (pendulum angle)
-- $x_4 = \dot{\theta}$ (pendulum angular velocity)
+| State Variable   | Definition       | Physical Meaning           |
+|------------------|------------------|----------------------------|
+| $x_1$            | $X$              | cart position              |
+| $x_2$            | $\dot{X}$        | cart velocity              |
+| $x_3$            | $\theta$         | pendulum angle             |
+| $x_4$            | $\dot{\theta}$   | pendulum angular velocity  |
+
 
 $$
     \begin{bmatrix}
