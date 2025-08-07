@@ -46,8 +46,8 @@ $
 
 ### 2. Energy
 
-- **Potential:** $ V = mgy_m = mgl\cos\theta $
-- **Kinetic:**  $ T = \frac{1}{2}M\dot{X}^2 + \frac{1}{2}m(\dot{x}_m^2 + \dot{y}_m^2) $
+- **Potential:** \$ V = mgy_m = mgl\cos\theta \$
+- **Kinetic:**  \$ T = \frac{1}{2}M\dot{X}^2 + \frac{1}{2}m(\dot{x}_m^2 + \dot{y}_m^2) \$
 
 ### 3. Lagrangian
 
