@@ -76,7 +76,7 @@ $$
 
 ### 6. Linearization (Small Angle)
 
-Assume    ($ \sin\theta \approx \theta $, $ \cos\theta \approx 1 $).
+Assume    $ \sin\theta \approx \theta $, $ \cos\theta \approx 1 $
 
 $$
     \begin{cases}
