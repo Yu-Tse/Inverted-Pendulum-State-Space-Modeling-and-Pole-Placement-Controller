@@ -138,9 +138,10 @@ Poles are selected to satisfy these requirements and ensure rapid decay of highe
 
 Sample simulation results are shown below:
 
+---
 ![Step Response X](<img width="560" height="420" alt="x" src="https://github.com/user-attachments/assets/de52993b-170f-4407-8bce-05036a3a6451" />)
+---
 ![Step Response Theta](<img width="560" height="420" alt="theta" src="https://github.com/user-attachments/assets/9b99c928-c43a-4239-a41c-b5168a3c23b0" />)
-
 ---
 
 ## What I Learned
