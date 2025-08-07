@@ -1,0 +1,67 @@
+# ==========================
+# MATLAB .gitignore template
+# ==========================
+
+# OS-generated files #
+#####################
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+
+# MATLAB code analysis cache #
+#############################
+*.asv              # Autosave files
+*.m~               # Backup files
+
+# Simulink code generation and cache #
+######################################
+slprj/
+sfprj/
+*_ert_rtw/
+*.slxc
+*.slx.autosave
+
+# MATLAB preferences and workspace #
+###################################
+*.mat              # Data and workspace files (if you want to ignore all mat files)
+*.fig              # Figure files
+*.mex*             # Compiled MEX files (platform-specific)
+*.log              # Log files
+
+# Ignore user-specific settings #
+###############################
+*.prj
+*.mlproj
+*.mldatx
+*.mexa64
+*.mexw64
+*.mexmaci64
+*.mexglx
+*.mexa32
+*.mexw32
+*.asv
+*.mdl.autosave
+*.sldd
+
+# Ignore backup, temporary, and hidden files #
+##############################################
+*~
+*.bak
+*.tmp
+*.swp
+*.lock
+
+# Jupyter/IPython (if you use live scripts) #
+#############################################
+*.ipynb_checkpoints
+
+# Uncomment the next two lines ONLY if you want to ignore all data files by default
+#*.mat
+#*.csv
+
+# Keep results/ and docs/ contents if you want them versioned
+# !results/*.png
+# !docs/*.pdf
+
