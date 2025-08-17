@@ -144,7 +144,7 @@ is full rank, so the system is controllable.
 
 **Design Requirements:**
 
-* Settling time: \$T\_s = 5 ,\text{s}\$
+* Settling time: \$T\_s = 5 \text{s}\$
 * Maximum overshoot: \$20%\$
 * Damping ratio: \$\zeta = 0.4559\$
 * Natural frequency: \$\omega\_n = 1.7546\$
