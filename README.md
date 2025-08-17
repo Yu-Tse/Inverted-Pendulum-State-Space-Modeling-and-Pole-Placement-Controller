@@ -135,7 +135,7 @@ The state feedback controller is designed based on the following requirements:
 The controllability matrix
 
 $$
-\mathcal{C} = \big[B \;\; AB \;\; A^2B \;\; A^3B \big]
+\mathcal{C} = \big[B \;\ AB \;\ A^2B \;\ A^3B \big]
 $$
 
 is full rank, so the system is controllable.
