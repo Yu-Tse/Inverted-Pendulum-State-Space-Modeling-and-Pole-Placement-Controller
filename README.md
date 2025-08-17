@@ -130,7 +130,48 @@ The state feedback controller is designed based on the following requirements:
 - Maximum overshoot: 20%
 - Full state feedback (assumes all states are measurable)
 
-Poles are selected to satisfy these requirements and ensure rapid decay of higher-order modes.
+
+**Controllability:**
+The controllability matrix
+
+$$
+\mathcal{C} = \big[B \;\; AB \;\; A^2B \;\; A^3B \big]
+$$
+
+is full rank, so the system is controllable.
+
+---
+
+**Design Requirements:**
+
+* Settling time: \$T\_s = 5 ,\text{s}\$
+* Maximum overshoot: \$20%\$
+* Damping ratio: \$\zeta = 0.4559\$
+* Natural frequency: \$\omega\_n = 1.7546\$
+
+---
+
+**Pole Selection:**
+
+Poles are chosen by shifting ×10 the real part for faster decay:
+
+$$
+-\zeta\omega_n \pm \omega_n j, \quad
+-3\omega_n \pm \omega_n j, \quad
+-10\zeta\omega_n \pm \omega_n j
+$$
+
+---
+
+**Feedback Gain:**
+
+$$
+K = 
+\begin{bmatrix}
+-25.4266 & -17.0053 & -133.5957 & -34.6053
+\end{bmatrix}
+$$
+
 
 ---
 
