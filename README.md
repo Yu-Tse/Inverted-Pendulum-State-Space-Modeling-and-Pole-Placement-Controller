@@ -200,4 +200,12 @@ This project was completed as part of coursework for Modern Control Systems and 
 
 ---
 
+## 🙋‍♂️ Author
+
+**Yu-Tse Wu** (吳雨澤)  
+*Master’s Student at the Institute of Innovation and Semiconductor Manufacturing, National Sun Yat-sen University*
+
+GitHub: [@Yu-Tse](https://github.com/Yu-Tse)
+
+
 If you have any questions or feedback, please feel free to open an issue or contact [me](mailto:yutsewu0209@gmail.com).
